@@ -17,6 +17,12 @@ config :accessive, AccessiveWeb.Endpoint,
   render_errors: [view: AccessiveWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Accessive.PubSub, adapter: Phoenix.PubSub.PG2]
 
+# Phauxth authentication configuration
+config :phauxth,
+  user_context: Accessive.Accounts,
+  crypto_module: Argon2,
+  token_module: AccessiveWeb.Auth.Token
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
